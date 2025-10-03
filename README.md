@@ -1,0 +1,1 @@
+# kariera-developers-day-2025
