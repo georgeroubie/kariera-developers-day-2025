@@ -53,13 +53,13 @@ export const FinalProject = () => {
               onClick={(ev) => copyToClipboard(ev, link.url)}
               aria-label={`Copy ${link.name} link to clipboard`}
             >
-              <CopyIcon width="20px" height="20px" />
+              <CopyIcon width="1.25rem" height="1.25rem" />
             </button>
           </li>
         ))}
       </ul>
       <button className="settings-button" aria-label="Open settings" onClick={onSettingsButtonClick}>
-        <GearIcon width="24px" height="24px" />
+        <GearIcon width="1.5rem" height="1.5rem" />
       </button>
     </main>
   );
