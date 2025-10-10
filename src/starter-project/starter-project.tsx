@@ -1,7 +1,6 @@
 import { CopyIcon } from '../icons/copy-icon';
 import { GearIcon } from '../icons/gear-icon';
 import logo from './../assets/react.svg';
-import './starter-project.css';
 
 const links = [
   { name: 'GameNest', url: 'https://gamenest.gr' },

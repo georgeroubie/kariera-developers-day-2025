@@ -1,7 +1,6 @@
 import { CopyIcon } from '../icons/copy-icon';
 import { GearIcon } from '../icons/gear-icon';
 import logo from './../assets/react.svg';
-import './final-project.css';
 
 const links = [
   { name: 'GameNest', url: 'https://gamenest.gr' },
@@ -14,12 +13,7 @@ export const FinalProject = () => {
     alert('Primary button is clicked');
   };
 
-  const openNewPage = (url: string) => {
-    window.open(url, '_blank');
-  };
-
-  const copyToClipboard = (ev: React.MouseEvent<HTMLElement, MouseEvent>, text: string) => {
-    ev.stopPropagation();
+  const copyToClipboard = (_ev: React.MouseEvent<HTMLElement, MouseEvent>, text: string) => {
     navigator.clipboard.writeText(text);
     alert('Copied to clipboard');
   };
@@ -29,12 +23,12 @@ export const FinalProject = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="title">Kariera Developers:Day 2025 - Workshop</div>
-      <div className="subtitle">Build for Everyone: EAA-Compliant Web Apps</div>
+    <main className="wrapper">
+      <h1 className="title">Kariera Developers:Day 2025 - Workshop</h1>
+      <h2 className="subtitle">Build for Everyone: EAA-Compliant Web Apps</h2>
       <div className="image-area">
         <div className="logo-wrapper">
-          <img className="logo" src={logo} alt="image" />
+          <img className="logo" src={logo} alt="" />
         </div>
         <div className="logo-description">
           Donec ultricies, urna et lacinia bibendum, ante tortor cursus tellus, ut bibendum urna urna ac neque. Mauris
@@ -44,23 +38,29 @@ export const FinalProject = () => {
           quam.
         </div>
       </div>
-      <div className="primary-button" onClick={handleOnClick}>
+      <button className="primary-button" onClick={handleOnClick}>
         Click me
-      </div>
-      <div className="list">
+      </button>
+      <ul className="list">
         {links.map((link, index) => (
-          <div className="list-item" key={index} onClick={() => openNewPage(link.url)}>
-            {link.name}
+          <li className="list-item" key={index}>
+            <a className="list-link" href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
 
-            <div className="list-action" onClick={(ev) => copyToClipboard(ev, link.url)}>
+            <button
+              className="list-action"
+              onClick={(ev) => copyToClipboard(ev, link.url)}
+              aria-label={`Copy ${link.name} link to clipboard`}
+            >
               <CopyIcon width="20px" height="20px" />
-            </div>
-          </div>
+            </button>
+          </li>
         ))}
-      </div>
-      <div className="settings-button" onClick={onSettingsButtonClick}>
+      </ul>
+      <button className="settings-button" aria-label="Open settings" onClick={onSettingsButtonClick}>
         <GearIcon width="24px" height="24px" />
-      </div>
-    </div>
+      </button>
+    </main>
   );
 };

@@ -14,5 +14,5 @@
 
 ## Run
 
-- (Optionally) Change the `SHOW_STARTER` variable in the `src/App.tsx` to false if you want to see the final project.
+- (Optionally) Comment/Uncomment the project that you want to load in the `src/App.tsx`.
 - Run: `yarn dev`

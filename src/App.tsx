@@ -1,14 +1,7 @@
-import { FinalProject } from './final-project/final-project';
-import { StarterProject } from './starter-project/starter-project';
+import { FinalProject as Project } from './final-project/final-project';
+import './final-project/final-project.css';
 
-const SHOW_STARTER = true;
+// import { StarterProject as Project } from './starter-project/starter-project';
+// import './starter-project/starter-project.css';
 
-function App() {
-  if (SHOW_STARTER) {
-    return <StarterProject />;
-  }
-
-  return <FinalProject />;
-}
-
-export default App;
+export const App = () => <Project />;

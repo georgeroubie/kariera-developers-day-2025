@@ -1,15 +1,24 @@
 /* Variables */
 :root {
-  --font-size-small: 12px;
-  --font-size-normal: 16px;
-  --font-size-large: 20px;
-  --font-size-xlarge: 24px;
-  --font-letter-spacing: 1.25px;
+  --font-size-small: 0.75rem;
+  --font-size-normal: 1rem;
+  --font-size-large: 1.25rem;
+  --font-size-xlarge: 1.5rem;
+  --font-letter-spacing: 0.078rem;
 
-  --color-background: #2a2a2a;
-  --color-surface: #1c1c1c;
-  --color-text-primary: #fff;
-  --color-border-primary: #686868;
+  --color-background: #f4f4f4;
+  --color-surface: #fff;
+  --color-text-primary: #141414;
+  --color-border-primary: #ababab;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #2a2a2a;
+    --color-surface: #1c1c1c;
+    --color-text-primary: #fff;
+    --color-border-primary: #686868;
+  }
 }
 
 /* Animations */
@@ -34,13 +43,13 @@
 .title {
   font-size: var(--font-size-xlarge);
   font-weight: 700;
-  text-align: left;
+  text-align: start;
 }
 
 .subtitle {
   font-size: var(--font-size-large);
   font-weight: 500;
-  text-align: left;
+  text-align: start;
 }
 
 .image-area {
@@ -50,7 +59,7 @@
     padding: 20px;
     border: 1px solid var(--color-border-primary);
     flex-grow: 1;
-    text-align: left;
+    text-align: start;
   }
 
   .logo-wrapper {
@@ -58,14 +67,17 @@
     padding: 20px;
     border: 1px solid var(--color-border-primary);
     flex-shrink: 0;
-    margin-right: 20px;
+    margin-inline-end: 20px;
 
     .logo {
       width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
-      animation: spin infinite 15s linear;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: spin infinite 15s linear;
+      }
     }
   }
 }
@@ -74,24 +86,33 @@
   border: 1px solid var(--color-border-primary);
   background-color: var(--color-surface);
   padding: 10px 16px;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: var(--font-size-normal);
 }
 
 .list {
   .list-item {
     border: 1px solid var(--color-border-primary);
     padding: 10px 16px;
-    cursor: pointer;
     display: flex;
     justify-content: space-between;
+    gap: 30px;
+    font-size: var(--font-size-normal);
+
+    &:not(:last-child) {
+      margin-block-end: 10px;
+    }
+  }
+
+  .list-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    flex: 1;
 
     &:hover {
       text-decoration: underline;
-    }
-
-    &:not(:last-child) {
-      margin-bottom: 10px;
     }
   }
 
@@ -102,6 +123,9 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: none;
+    border: 0;
+    color: var(--color-text-primary);
 
     &:hover {
       svg {
@@ -119,10 +143,15 @@
   border-radius: 50%;
   border: 1px solid var(--color-border-primary);
   background-color: var(--color-surface);
+  color: var(--color-text-primary);
   align-items: center;
   justify-content: center;
   cursor: pointer;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  inset-inline-end: 20px;
+  inset-block-end: 20px;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-border-primary);
 }
