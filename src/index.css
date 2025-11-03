@@ -1,0 +1,27 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: var(--color-background);
+  /*
+    Smooth the font on the level of the pixel, as opposed to the subpixel.
+    Switching from subpixel rendering to anti-aliasing for light text on dark backgrounds makes it look lighter.
+  */
+  -webkit-font-smoothing: antialiased; /* Webkit */
+  -moz-osx-font-smoothing: grayscale; /* Firefox */
+
+  /* The browser will modify the shape of glyphs for optimal viewing. */
+  font-optical-sizing: auto;
+
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+  letter-spacing: var(--font-letter-spacing);
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
