@@ -16,3 +16,7 @@
 
 - (Optionally) Comment/Uncomment the project that you want to load in the `src/App.tsx`.
 - Run: `yarn dev`
+
+## Presentation
+
+The presentation file is located in the root directory and is named `Presentation.pptx`.
